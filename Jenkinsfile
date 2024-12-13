@@ -4,7 +4,8 @@ pipeline {
         stage('Check for Changes') {
             steps {
                 script {
-                    echo "Changes detected in GitHub repository."
+                    echo "Changes detected in the GitHub repository."
+			
                 }
             }
         }
