@@ -1,20 +1,13 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Service
 metadata:
-  name: cw2-server
+  name: cw2-server-service
 spec:
-  replicas: 3
   selector:
-    matchLabels:
-      app: cw2-server
-  template:
-    metadata:
-      labels:
-        app: cw2-server
-    spec:
-      containers:
-      - name: cw2-server
-        image: your-dockerhub-username/cw2-server:1.0
-        ports:
-        - containerPort: 8080
+    app: cw2-server
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: LoadBalancer
 
