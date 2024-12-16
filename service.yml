@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cw2-server
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cw2-server
+  template:
+    metadata:
+      labels:
+        app: cw2-server
+    spec:
+      containers:
+      - name: cw2-server
+        image: your-dockerhub-username/cw2-server:1.0
+        ports:
+        - containerPort: 8080
+
